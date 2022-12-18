@@ -1,0 +1,103 @@
+{
+  "$schema": "https://developer.joomla.org/schemas/json-schema/web_assets.json",
+  "name": "com_helloworld",
+  "version": "1.0.0",
+  "description": "Joomla CMS",
+  "license": "GPL-2.0-or-later",
+  "assets": [
+    {
+      "name": "com_helloworld.validate-greeting",
+      "type": "script",
+      "uri": "com_helloworld/validate-greeting.js",
+      "dependencies": [
+        "form.validate", "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    } ,
+    {
+      "name": "com_helloworld.fix-permissions-ajax-call",
+      "type": "script",
+      "uri": "com_helloworld/fix-permissions-ajax-call.js",
+      "dependencies": [
+        "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    } ,
+    {
+      "name": "com_helloworld.enable-tooltips",
+      "type": "script",
+      "uri": "com_helloworld/enable-tooltips.js",
+      "dependencies": [
+        "jquery", "bootstrap.es5", "bootstrap.popover"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_helloworld.openstreetmap",
+      "type": "preset",
+      "dependencies": [
+      "com_helloworld.openstreetmap#style",
+      "com_helloworld.openstreetmap#script"
+      ]
+    },
+    {
+      "name": "com_helloworld.openstreetmap",
+      "type": "script",
+      "uri": "com_helloworld/openstreetmap.js",
+      "dependencies": [
+        "com_helloworld.openlayers"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_helloworld.openstreetmap",
+      "type": "style",
+      "uri": "com_helloworld/openstreetmap.css",
+      "dependencies": [
+        "com_helloworld.openlayers"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_helloworld.openlayers",
+      "type": "script",
+      "uri": "https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.4/ol.js",
+      "dependencies": [
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_helloworld.openlayers",
+      "type": "style",
+      "uri": "https://cdnjs.cloudflare.com/ajax/libs/openlayers/4.6.4/ol.css",
+      "dependencies": [
+      ],
+      "attributes": {
+        "defer": true
+      }
+    },
+    {
+      "name": "com_helloworld.admin-helloworlds-modal",
+      "type": "script",
+      "uri": "com_helloworld/admin-helloworlds-modal.js",
+      "dependencies": [
+        "field.modal-fields", "jquery"
+      ],
+      "attributes": {
+        "defer": true
+      }
+    } 
+  ]
+}

@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+	<fieldset
+		name="greetings"
+		label="COM_HELLOWORLD_CONFIG_GREETING_SETTINGS_LABEL"
+		description="COM_HELLOWORLD_CONFIG_GREETING_SETTINGS_DESC"
+	>
+		<field
+			name="show_category"
+			type="radio"
+			label="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_LABEL"
+			description="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_DESC"
+			default="0"
+		>
+			<option value="0">JHIDE</option>
+			<option value="1">JSHOW</option>
+		</field>
+        <field
+			name="user_to_email"
+			type="user"
+			label="COM_HELLOWORLD_HELLOWORLD_FIELD_USER_TO_EMAIL_LABEL"
+			description="COM_HELLOWORLD_HELLOWORLD_FIELD_USER_TO_EMAIL_DESC"
+			default="0"
+		>
+		</field>
+        <field
+			name="save_history"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="JGLOBAL_SAVE_HISTORY_OPTIONS_LABEL"
+			description="JGLOBAL_SAVE_HISTORY_OPTIONS_DESC"
+		>
+			<option
+				value="0">JNO</option>
+			<option
+				value="1">JYES</option>
+		</field>
+		<field
+			name="history_limit_helloworld"
+			type="text"
+			filter="integer"
+			label="JGLOBAL_HISTORY_LIMIT_OPTIONS_LABEL"
+			description="JGLOBAL_HISTORY_LIMIT_OPTIONS_DESC"
+			default="3"
+		>
+		</field>
+        <field
+			name="history_limit_category"
+			type="text"
+			filter="integer"
+			label="JGLOBAL_HISTORY_LIMIT_OPTIONS_LABEL"
+			description="JGLOBAL_HISTORY_LIMIT_OPTIONS_DESC"
+			default="2"
+		>
+		</field>
+	</fieldset>
+    <fieldset name="integration"
+		label="JGLOBAL_INTEGRATION_LABEL"
+		description="COM_HELLOWORLD_CONFIG_INTEGRATION_SETTINGS_DESC"
+	>
+		<field
+			name="show_feed_link"
+			type="radio"
+			class="btn-group btn-group-yesno"
+			default="1"
+			label="JGLOBAL_SHOW_FEED_LINK_LABEL"
+			description="JGLOBAL_SHOW_FEED_LINK_DESC">
+			<option value="1">JSHOW</option>
+			<option value="0">JHIDE</option>
+		</field>
+	</fieldset>
+    <fieldset
+		name="permissions"
+		label="JCONFIG_PERMISSIONS_LABEL"
+		description="JCONFIG_PERMISSIONS_DESC"
+	>
+		<field
+			name="rules"
+			type="rules"
+			label="JCONFIG_PERMISSIONS_LABEL"
+			class="inputbox"
+			validate="rules"
+			filter="rules"
+			component="com_helloworld"
+			section="component"
+		/>
+	</fieldset>
+</config>

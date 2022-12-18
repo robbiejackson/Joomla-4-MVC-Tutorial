@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+    <layout title="COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_TITLE">
+        <message>COM_HELLOWORLD_HELLOWORLD_VIEW_DEFAULT_DESC</message>
+    </layout>
+    <fields name="request">
+        <fieldset name="request" addfieldprefix="Robbie\Component\Helloworld\Administrator\Field">
+            <field
+                name="id"
+                type="modal_helloworld"
+                required="true"
+                select="true"
+				clear="true"
+                label="COM_HELLOWORLD_HELLOWORLD_FIELD_GREETING_LABEL"
+                />
+        </fieldset>
+    </fields>
+</metadata>
