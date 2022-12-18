@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<form> 
+	<fieldset 
+                name="details"
+                label="COM_HELLOWORLD_HELLOWORLD_DETAILS"
+                addruleprefix="Robbie\Component\Helloworld\Administrator\Rule"
+                addfieldprefix="Robbie\Component\Helloworld\Administrator\Field">
+		<field
+				name="id"
+				type="hidden"
+				/>
+		<field
+				name="greeting"
+				type="text"
+				label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
+				size="40"
+                validate="greeting"
+				class="inputbox validate-greeting"
+				default=""
+				/>
+        <field 
+				name="alias" 
+				type="text" 
+				label="JFIELD_ALIAS_LABEL"
+				description="JFIELD_ALIAS_DESC"
+				hint="JFIELD_ALIAS_PLACEHOLDER"
+				size="40" 
+				/>
+        <field
+				name="catid"
+				type="category"
+				extension="com_helloworld"
+				class="inputbox"
+				default=""
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_CATID_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_CATID_DESC"
+				required="true"
+		>
+			<option value="0">JOPTION_SELECT_CATEGORY</option>
+		</field>
+        <field
+				name="latitude"
+				type="number"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_LATITUDE_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_LATITUDE_DESC"
+				min="-90.0"
+				max="90.0"
+				class="inputbox"
+				required="true"
+				default="0.0"
+				/>
+		<field
+				name="longitude"
+				type="number"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_LONGITUDE_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_LONGITUDE_DESC"
+				min="-180.0"
+				max="180.0"
+				class="inputbox"
+				required="true"
+				default="0.0"
+				/>
+        <field
+				name="language" 
+				type="contentlanguage" 
+				label="JFIELD_LANGUAGE_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_LANGUAGE_DESC"
+				>
+				<option value="*">JALL</option>
+		</field>
+        <field 	name="published" 
+				type="list" 
+				label="JSTATUS"
+				description="JFIELD_PUBLISHED_DESC" 
+				class="form-select-color-state"
+				filter="intval" 	
+				size="1" 
+				default="1"
+		>
+			<option value="1">
+				JPUBLISHED</option>
+			<option value="0">
+				JUNPUBLISHED</option>
+		</field>
+		<field 
+				name="tags" 
+				type="tag"
+				label="JTAG" 
+				description="JTAG_DESC"
+				multiple="true"
+		>
+		</field>
+        <field  
+				name="access" 
+				type="accesslevel" 
+				label="JFIELD_ACCESS_LABEL"
+				description="JFIELD_ACCESS_DESC"
+		>
+        </field>
+        <field
+				name="parent_id"
+				type="helloworldparent"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_PARENT_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_PARENT_DESC"
+				default="1"
+				filter="int">
+		</field>
+		<field
+				name="helloworldordering"
+				type="helloworldordering"
+				label="JFIELD_ORDERING_LABEL"
+				description="JFIELD_ORDERING_DESC"
+				filter="int"
+				size="1">
+		</field>
+        <field 	name="version_note"
+				type="text"
+				label="JGLOBAL_FIELD_VERSION_NOTE_LABEL"
+				description="JGLOBAL_FIELD_VERSION_NOTE_DESC"
+				class="inputbox" 
+				size="45"
+				labelclass="control-label">
+		</field>
+    </fieldset>
+		<field 	name="description" 
+				type="editor"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_DESCRIPTION_LABEL" 
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_DESCRIPTION_DESC"
+				filter="JComponentHelper::filterText" 
+				buttons="true" 
+		/>
+    <fields name="imageinfo">
+		<fieldset
+			name="image-info"
+			label="COM_HELLOWORLD_IMAGE_FIELDS"
+		>
+			<field
+				name="image"
+				type="media"
+                types="images"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_IMAGE_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_IMAGE_DESC" />
+			<field name="alt"
+				type="text"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_ALT_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_ALT_DESC"
+				size="30"/>
+			<field name="caption"
+				type="text"
+				label="COM_HELLOWORLD_HELLOWORLD_FIELD_CAPTION_LABEL"
+				description="COM_HELLOWORLD_HELLOWORLD_FIELD_CAPTION_DESC"
+				size="30"/>
+		</fieldset>
+	</fields>
+    <fields name="params">
+		<fieldset
+				name="params"
+				label="JGLOBAL_FIELDSET_DISPLAY_OPTIONS"
+		>
+			<field
+					name="show_category"
+					type="list"
+					label="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_LABEL"
+					description="COM_HELLOWORLD_HELLOWORLD_FIELD_SHOW_CATEGORY_DESC"
+					default=""
+			>
+				<option value="">JGLOBAL_USE_GLOBAL</option>
+				<option value="0">JHIDE</option>
+				<option value="1">JSHOW</option>
+			</field>
+		</fieldset>
+	</fields>
+    <fieldset
+			name="accesscontrol"
+			label="COM_HELLOWORLD_FIELDSET_RULES"
+	>
+    	<field
+				name="asset_id"
+				type="hidden"
+				filter="unset"
+				/>
+    	<field
+				name="rules"
+				type="rules"
+				label="COM_HELLOWORLD_FIELD_RULES_LABEL"
+				filter="rules"
+				validate="rules"
+				class="inputbox"
+				component="com_helloworld"
+				section="message"
+				/>
+    </fieldset>
+</form>

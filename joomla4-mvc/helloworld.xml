@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" method="upgrade">
+
+    <name>Hello World</name>
+    <creationDate>October 2022</creationDate>
+    <author>Robbie</author>
+    <authorUrl>https://robbie.jackson</authorUrl>
+    <copyright>Robbie</copyright>
+    <license>GPL v3</license>
+    <version>1.1.0</version>
+    <description>
+        A hello world component!
+    </description>
+
+    <!-- This is the PHP namespace under which the extension's
+    code is organised. It should follow this format:
+    
+    Vendor\Component\ComponentName
+
+    "Vendor" can be your company or your own name
+    
+    The "ComponentName" section MUST match the name used 
+    everywhere else for your component. Whatever the name of 
+    this XML file is, the namespace must match (ignoring CamelCase). 
+    -->
+    <namespace path="src">Robbie\Component\Helloworld</namespace>
+    
+    <!-- Runs on install/uninstall/update; New in 2.5 -->
+	<scriptfile>script.php</scriptfile>
+
+    <files folder="site/">
+        <folder>forms</folder>
+        <folder>helpers</folder>
+        <folder>src</folder>
+        <folder>tmpl</folder>
+    </files>
+
+    <languages folder="site/language">
+        <language tag="en-GB">en-GB/com_helloworld.ini</language>
+        <language tag="es-ES">es-ES/es-ES.com_helloworld.ini</language>
+        <language tag="fr-FR">fr-FR/fr-FR.com_helloworld.ini</language>
+    </languages>
+    
+    <media destination="com_helloworld" folder="media">
+        <filename>joomla.asset.json</filename>
+        <folder>js</folder>
+	</media>
+
+    <administration>
+        <!-- The link that will appear in the Admin panel's "Components" menu -->
+        <menu link="option=com_helloworld">COM_HELLOWORLD_MENU</menu>
+        <submenu>
+			<menu link="option=com_helloworld">COM_HELLOWORLD_MENU</menu>
+			<menu link="option=com_categories&amp;extension=com_helloworld">COM_HELLOWORLD_CATEGORIES</menu>
+            <menu link="option=com_fields&amp;view=fields&amp;context=com_helloworld.helloworld">MOD_MENU_FIELDS</menu>
+            <menu link="option=com_fields&amp;view=groups&amp;context=com_helloworld.helloworld">MOD_MENU_FIELDS_GROUP</menu>
+		</submenu>
+
+        <!-- List of files and folders to copy, and where to copy them -->
+        <files folder="admin/">
+            <filename>access.xml</filename>
+            <filename>config.xml</filename>
+            <folder>forms</folder>
+            <folder>layouts</folder>
+            <folder>services</folder>
+            <folder>sql</folder>
+            <folder>src</folder>
+            <folder>tmpl</folder>
+        </files>
+
+        <languages folder="admin/language">
+            <language tag="en-GB">en-GB/com_helloworld.ini</language>
+            <language tag="en-GB">en-GB/com_helloworld.sys.ini</language>
+            <language tag="es-ES">es-ES/es-ES.com_helloworld.ini</language>
+            <language tag="es-ES">es-ES/es-ES.com_helloworld.sys.ini</language>
+            <language tag="fr-FR">fr-FR/fr-FR.com_helloworld.ini</language>
+            <language tag="fr-FR">fr-FR/fr-FR.com_helloworld.sys.ini</language>
+        </languages>
+    </administration>
+    
+    <install>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+        </sql>
+    </install>
+    <uninstall>
+        <sql>
+            <file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+        </sql>
+    </uninstall>
+    <update>
+        <schemas>
+            <schemapath type="mysql">sql/updates/mysql</schemapath>
+        </schemas>
+    </update>
+
+</extension>
