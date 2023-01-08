@@ -6,6 +6,7 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Component\Router\RouterInterface;
 use Joomla\CMS\Factory;
+use Joomla\CMS\Categories\CategoryFactoryInterface;
 use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Menu\AbstractMenu;
 use Joomla\Database\DatabaseInterface;
@@ -13,16 +14,24 @@ use Joomla\CMS\Language\Multilanguage;
 use Joomla\CMS\Categories\Categories;
 use Joomla\CMS\Language\Associations;
 
-class LegacyRouter implements RouterInterface
+class TraditionalRouter implements RouterInterface
 {
     private $application;
     
     private $menu;
     
-    public function __construct($application, $menu)
+    private $categoryFactory;
+
+    private $db;
+    
+    private $categories;
+    
+    public function __construct($application, $menu, CategoryFactoryInterface $categoryFactory, DatabaseInterface $db)
     {
         $this->application = $application;
         $this->menu = $menu;
+        $this->categoryFactory = $categoryFactory;
+        $this->db = $db;
     }
 
 	public function build(&$query)
@@ -126,6 +135,21 @@ class LegacyRouter implements RouterInterface
 	}
     
     /*
+	 * This function gets an instance of the Categories object, which is needed for finding CategoryNode records
+     * It replaces Categories::getInstance() by using the $categoryFactory which is passed into the constructor
+     * It saves the Categories object for returning in further invocations
+	 */
+     
+	private function getCategories()
+	{
+        if (!isset($this->categories)) 
+        {
+            $this->categories = $this->categoryFactory->createCategory();
+        }
+        return $this->categories;
+    }
+    
+    /*
 	 * This function take a category id and finds the path from that category to the root of the category tree
 	 * The path returned from getPath() is an associative array of key = category id, value = id:alias
 	 * If no valid category is found from the passed-in category id then null is returned. 
@@ -133,7 +157,7 @@ class LegacyRouter implements RouterInterface
      
 	private function getCategorySegments($catid)
 	{
-		$categories = Categories::getInstance('Helloworld', array());
+		$categories = $this->getCategories();
 		$categoryNode = $categories->get($catid);
 		if ($categoryNode)
 		{
@@ -172,7 +196,7 @@ class LegacyRouter implements RouterInterface
 		else
 		{
 			// Try to match the categories in the segments, starting at the root
-			$categories = Categories::getInstance('Helloworld', array());
+			$categories = $this->getCategories();
 			$matchingCategory = $categories->get('root');
             
 			// Go through the category tree, try to get a match between each segment

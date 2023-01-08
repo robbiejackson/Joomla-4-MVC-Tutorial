@@ -103,9 +103,7 @@ class HtmlView extends BaseHtmlView {
 		//HtmlHelper::_('behavior.formvalidator');
 
 		$isNew = ($this->item->id < 1);
-		//$this->document = Factory::getApplication()->getDocument();
 		$this->document->setTitle($isNew ? Text::_('COM_HELLOWORLD_HELLOWORLD_CREATING') :
                 Text::_('COM_HELLOWORLD_HELLOWORLD_EDITING'));
-
 	}
 }

@@ -73,7 +73,7 @@ class HtmlView extends BaseHtmlView {
 	{
 		$title = Text::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS', 'smiley-2');
         
-        $bar = Toolbar::getInstance('toolbar');
+        $bar = Factory::getContainer()->get(ToolbarFactoryInterface::class)->createToolbar();
 
 		if ($this->pagination->total)
 		{
@@ -115,8 +115,8 @@ class HtmlView extends BaseHtmlView {
     
     protected function setDocument() 
 	{
-		$document = Factory::getApplication()->getDocument();
-		$document->setTitle(Text::_('COM_HELLOWORLD_ADMINISTRATION'));
+		//$document = Factory::getApplication()->getDocument();
+		$this->document->setTitle(Text::_('COM_HELLOWORLD_ADMINISTRATION'));
 	}
 
 }

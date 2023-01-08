@@ -56,7 +56,6 @@ abstract class AssociationHelper extends CategoryAssociationHelper
 
 		if ($view === 'category' || $view === 'categories')
 		{
-            \JLoader::registerAlias('HelloworldHelperRoute', '\\Robbie\\Component\\Helloworld\\Site\\Helper\\RouteHelper', '5.0');
 			return self::getCategoryAssociations($id, 'com_helloworld');
 		}
 
