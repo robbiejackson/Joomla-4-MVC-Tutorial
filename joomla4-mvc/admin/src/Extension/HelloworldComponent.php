@@ -65,12 +65,12 @@ class HelloworldComponent extends MVCComponent implements
         return 'published';
     }
     
-    /* Uncomment the following function if you want to use the legacy router */
+    /* Uncomment the following function if you want to use the legacy router 
     public function createRouter(CMSApplicationInterface $application, AbstractMenu $menu): RouterInterface
     {
         return new TraditionalRouter($application, $menu, $this->categoryFactory, $this->getDatabase());
     }
-    /**/
+    */
     
     /**
 	 * This is used by com_fields in the admin menu
