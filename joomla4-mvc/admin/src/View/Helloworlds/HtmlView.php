@@ -8,6 +8,7 @@ use Joomla\CMS\MVC\View\HtmlView as BaseHtmlView;
 use Joomla\CMS\MVC\View\GenericDataException;
 use Joomla\CMS\Toolbar\Toolbar;
 use Joomla\CMS\Toolbar\ToolbarHelper;
+use Joomla\CMS\Toolbar\ToolbarFactoryInterface;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Helper\ContentHelper;
@@ -73,7 +74,7 @@ class HtmlView extends BaseHtmlView {
 	{
 		$title = Text::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS', 'smiley-2');
         
-        $bar = Toolbar::getInstance('toolbar');
+        $bar = Factory::getContainer()->get(ToolbarFactoryInterface::class)->createToolbar();
 
 		if ($this->pagination->total)
 		{
@@ -115,8 +116,8 @@ class HtmlView extends BaseHtmlView {
     
     protected function setDocument() 
 	{
-		$document = Factory::getApplication()->getDocument();
-		$document->setTitle(Text::_('COM_HELLOWORLD_ADMINISTRATION'));
+		//$document = Factory::getApplication()->getDocument();
+		$this->document->setTitle(Text::_('COM_HELLOWORLD_ADMINISTRATION'));
 	}
 
 }

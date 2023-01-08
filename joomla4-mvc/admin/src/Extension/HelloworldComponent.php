@@ -15,7 +15,7 @@ use Psr\Container\ContainerInterface;
 use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\Component\Router\RouterServiceTrait;
 use Joomla\CMS\Component\Router\RouterServiceInterface;
-use Robbie\Component\Helloworld\Site\Service\LegacyRouter;
+use Robbie\Component\Helloworld\Site\Service\TraditionalRouter;
 use Joomla\CMS\Component\Router\RouterInterface;
 use Joomla\CMS\Application\CMSApplicationInterface;
 use Joomla\CMS\Menu\AbstractMenu;
@@ -23,7 +23,7 @@ use Robbie\Component\Helloworld\Administrator\Service\HTML\AdministratorService;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Fields\FieldsServiceInterface;
-
+use Joomla\Database\DatabaseAwareTrait;
     
 class HelloworldComponent extends MVCComponent implements 
     CategoryServiceInterface, RouterServiceInterface, BootableExtensionInterface, AssociationServiceInterface, FieldsServiceInterface
@@ -32,6 +32,7 @@ class HelloworldComponent extends MVCComponent implements
     use RouterServiceTrait;
 	use HTMLRegistryAwareTrait;
     use AssociationServiceTrait;
+    use DatabaseAwareTrait;
 
 	/**
 	 * Booting the extension. This is the function to set up the environment of the extension like
@@ -64,10 +65,10 @@ class HelloworldComponent extends MVCComponent implements
         return 'published';
     }
     
-    /* Uncomment the following function if you want to use the legacy router
+    /* Uncomment the following function if you want to use the legacy router 
     public function createRouter(CMSApplicationInterface $application, AbstractMenu $menu): RouterInterface
     {
-        return new LegacyRouter($application, $menu);
+        return new TraditionalRouter($application, $menu, $this->categoryFactory, $this->getDatabase());
     }
     */
     
@@ -91,7 +92,7 @@ class HelloworldComponent extends MVCComponent implements
     /**
 	 * This is used by com_fields
      * It indicates to com_fields to use the 'helloworld' context 
-     * when using the front end form (called 'form').
+     * eg when using the front end form (called 'form').
 	 *
 	 */
     public function validateSection($section, $item = null)

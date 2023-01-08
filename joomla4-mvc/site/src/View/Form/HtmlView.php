@@ -80,6 +80,6 @@ class HtmlView extends BaseHtmlView
 	 */
 	protected function setDocument() 
 	{
-		$document = Factory::getDocument();
+        $this->document->setTitle(Text::_('COM_HELLOWORLD_HELLOWORLD_CREATING'));
 	}
 }

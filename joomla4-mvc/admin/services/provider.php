@@ -18,6 +18,7 @@ use Joomla\CMS\Component\Router\RouterFactoryInterface;
 use Robbie\Component\Helloworld\Administrator\Extension\HelloworldComponent;
 use Robbie\Component\Helloworld\Administrator\Helper\AssociationsHelper;
 use Joomla\CMS\Association\AssociationExtensionInterface;
+use Joomla\Database\DatabaseInterface;
 
 
 return new class implements ServiceProviderInterface {
@@ -39,6 +40,7 @@ return new class implements ServiceProviderInterface {
                 $component->setRegistry($container->get(Registry::class));
                 $component->setAssociationExtension($container->get(AssociationExtensionInterface::class));
                 $component->setRouterFactory($container->get(RouterFactoryInterface::class));
+                $component->setDatabase($container->get(DatabaseInterface::class));
 
                 return $component;
             }
