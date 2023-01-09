@@ -74,7 +74,7 @@ class HtmlView extends BaseHtmlView {
 	{
 		$title = Text::_('COM_HELLOWORLD_MANAGER_HELLOWORLDS', 'smiley-2');
         
-        $bar = Factory::getContainer()->get(ToolbarFactoryInterface::class)->createToolbar();
+        $bar = Toolbar::getInstance('toolbar');
 
 		if ($this->pagination->total)
 		{
