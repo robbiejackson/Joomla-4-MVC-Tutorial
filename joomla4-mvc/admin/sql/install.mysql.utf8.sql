@@ -39,7 +39,7 @@ INSERT INTO `#__helloworld` (`greeting`,`alias`,`language`, `parent_id`, `level`
 INSERT INTO `#__content_types` (`type_title`, `type_alias`, `rules`, `content_history_options`, `table`, `field_mappings`, `router`) 
 VALUES
 ('Helloworld', 'com_helloworld.helloworld', '',
-'{"formFile":"administrator\\/components\\/com_helloworld\\/models\\/forms\\/helloworld.xml", 
+'{"formFile":"administrator\\/components\\/com_helloworld\\/forms\\/helloworld.xml", 
 "hideFields":["asset_id","checked_out","checked_out_time","version","lft","rgt","level","path"], 
 "ignoreChanges":["checked_out", "checked_out_time", "path"],
 "convertToInt":[], 
@@ -47,8 +47,8 @@ VALUES
 {"sourceColumn":"created_by","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},
 {"sourceColumn":"parent_id","targetTable":"#__helloworld","targetColumn":"id","displayColumn":"greeting"},
 {"sourceColumn":"catid","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}',
-'{"special":{"dbtable":"#__helloworld","key":"id","type":"Helloworld","prefix":"HelloworldTable","config":"array()"},
-"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}',
+'{"special":{"dbtable":"#__helloworld","key":"id","type":"HelloworldTable","prefix":"Robbie\\\\Component\\\\Helloworld\\\\Administrator\\\\Table\\\\","config":"array()"},
+"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"Joomla\\\\CMS\\\\Table\\\\","config":"array()"}}',
 '{"common": {
     "core_content_item_id": "id",
     "core_title": "greeting",
@@ -62,7 +62,7 @@ VALUES
   }}',
 'HelloworldHelperRoute::getHelloworldRoute'),
 ('Helloworld Category', 'com_helloworld.category', '',
-'{"formFile":"administrator\\/components\\/com_categories\\/models\\/forms\\/category.xml", 
+'{"formFile":"administrator\\/components\\/com_categories\\/forms\\/category.xml", 
 "hideFields":["asset_id","checked_out","checked_out_time","version","lft","rgt","level","path","extension"], 
 "ignoreChanges":["modified_user_id", "modified_time", "checked_out", "checked_out_time", "version", "hits", "path"],
 "convertToInt":["publish_up", "publish_down"], 
@@ -71,8 +71,8 @@ VALUES
 {"sourceColumn":"access","targetTable":"#__viewlevels","targetColumn":"id","displayColumn":"title"},
 {"sourceColumn":"modified_user_id","targetTable":"#__users","targetColumn":"id","displayColumn":"name"},
 {"sourceColumn":"parent_id","targetTable":"#__categories","targetColumn":"id","displayColumn":"title"}]}',
-'{"special":{"dbtable":"#__categories","key":"id","type":"Category","prefix":"JTable","config":"array()"},
-"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"JTable","config":"array()"}}',
+'{"special":{"dbtable":"#__categories","key":"id","type":"CategoryTable","prefix":"Joomla\\\\Component\\\\Categories\\\\Administrator\\\\Table\\\\","config":"array()"},
+"common":{"dbtable":"#__ucm_content","key":"ucm_id","type":"Corecontent","prefix":"Joomla\\\\CMS\\\\Table\\\\","config":"array()"}}',
 '{"common": {
 	"core_content_item_id":"id",
 	"core_title":"title",
