@@ -67,7 +67,8 @@ class CategoryModel extends ListModel
     public function getCategoryName()
 	{
 		$catid = $this->getState('category.id'); 
-		$categories = Categories::getInstance('Helloworld', array('access' => false));
+		//$categories = Categories::getInstance('Helloworld', array('access' => false));
+        $categories = $this->getCategories();
 		$categoryNode = $categories->get($catid);   
 		return $categoryNode->title; 
 	}
@@ -75,7 +76,8 @@ class CategoryModel extends ListModel
 	public function getSubcategories()
 	{
 		$catid = $this->getState('category.id'); 
-		$categories = Categories::getInstance('Helloworld', array('access' => false));
+		//$categories = Categories::getInstance('Helloworld', array('access' => false));
+        $categories = $this->getCategories();
 		$categoryNode = $categories->get($catid);
 		$subcats = $categoryNode->getChildren(); 
         
@@ -99,7 +101,8 @@ class CategoryModel extends ListModel
     public function getCategoryAccess()
 	{
 		$catid = $this->getState('category.id'); 
-		$categories = Categories::getInstance('Helloworld', array('access' => false));
+		//$categories = Categories::getInstance('Helloworld', array('access' => false));
+        $categories = $this->getCategories();
 		$categoryNode = $categories->get($catid);   
 		return $categoryNode->access; 
 	}
@@ -159,4 +162,11 @@ class CategoryModel extends ListModel
 		$category = $categories->get($this->getState('category.id', 'root'));
 		return $category;
 	}
+    
+    // function to get the Categories instance via dependency injection
+    public function getCategories()
+    {
+        $categories = $this->getMVCFactory()->getCategory();
+        return $categories;
+    }
 }

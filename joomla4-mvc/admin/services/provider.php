@@ -7,7 +7,8 @@ use Joomla\CMS\Extension\ComponentInterface;
 use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\Extension\Service\Provider\ComponentDispatcherFactory;
 use Joomla\CMS\Extension\Service\Provider\CategoryFactory;
-use Joomla\CMS\Extension\Service\Provider\MVCFactory;
+//use Joomla\CMS\Extension\Service\Provider\MVCFactory; - replaced by line below
+use Robbie\Component\Helloworld\Administrator\Extension\SuperMVCFactoryServiceProvider;
 use Joomla\CMS\Extension\Service\Provider\RouterFactory;
 use Joomla\CMS\MVC\Factory\MVCFactoryInterface;
 use Joomla\CMS\HTML\Registry;
@@ -28,7 +29,8 @@ return new class implements ServiceProviderInterface {
         $container->set(AssociationExtensionInterface::class, new AssociationsHelper());
         
         $container->registerServiceProvider(new CategoryFactory('\\Robbie\\Component\\Helloworld'));
-        $container->registerServiceProvider(new MVCFactory('\\Robbie\\Component\\Helloworld'));
+        // use the SuperMVCFactory Service Provider instead of the MVCFactory one
+        $container->registerServiceProvider(new SuperMVCFactoryServiceProvider('\\Robbie\\Component\\Helloworld'));
         $container->registerServiceProvider(new ComponentDispatcherFactory('\\Robbie\\Component\\Helloworld'));
         $container->registerServiceProvider(new RouterFactory('\\Robbie\\Component\\Helloworld'));
         $container->set(
