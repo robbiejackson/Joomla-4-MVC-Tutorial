@@ -14,7 +14,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "1.0.0"
     } ,
     {
       "name": "com_helloworld.fix-permissions-ajax-call",
@@ -25,7 +26,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "1.0.0"
     } ,
     {
       "name": "com_helloworld.enable-tooltips",
@@ -36,7 +38,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "1.0.0"
     },
     {
       "name": "com_helloworld.openstreetmap",
@@ -55,7 +58,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "1.0.0"
     },
     {
       "name": "com_helloworld.openstreetmap",
@@ -66,7 +70,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "1.0.0"
     },
     {
       "name": "com_helloworld.openlayers",
@@ -76,7 +81,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "4.6.4"
     },
     {
       "name": "com_helloworld.openlayers",
@@ -86,7 +92,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "4.6.4"
     },
     {
       "name": "com_helloworld.admin-helloworlds-modal",
@@ -97,7 +104,8 @@
       ],
       "attributes": {
         "defer": true
-      }
+      },
+      "version": "1.0.0"
     } 
   ]
 }

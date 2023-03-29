@@ -44,6 +44,7 @@
     <media destination="com_helloworld" folder="media">
         <filename>joomla.asset.json</filename>
         <folder>js</folder>
+        <folder>css</folder>
 	</media>
 
     <administration>
