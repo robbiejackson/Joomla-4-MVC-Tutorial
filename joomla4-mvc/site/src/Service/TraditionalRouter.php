@@ -260,22 +260,7 @@ class TraditionalRouter implements RouterInterface
         $app  = Factory::getApplication();
         $sitemenu = $app->getMenu();
 
-        if (isset($query['Itemid']))
-        {
-            // If the query parameters match that menuitem exactly then unset the id
-            // Note that the id can be in the form <record id>:<record alias> so we use (int) to get just the <record id>
-            // Find the menuitem whose id is the Itemid passed in
-            $thisMenuitem = $sitemenu->getItem($query['Itemid']);
-            // check the query params of that menuitem to see if it matches with the helloworld or category id passed in
-            if (array_key_exists('id', $query) && array_key_exists('id', $thisMenuitem->query) && $thisMenuitem->query['id'] == (int)$query['id'])
-            {
-                unset($query['id']);
-                if (array_key_exists('catid', $query)) {
-                    unset($query['catid']);
-                }
-            }
-        } 
-        else
+        if (!isset($query['Itemid']))
         {
             // No Itemid set, so try to find a helloworld menuitem which matches the query params
             // Firstly get all the helloworld menuitems, matching the language if set.
@@ -290,17 +275,14 @@ class TraditionalRouter implements RouterInterface
             }
             foreach ($helloworldItems as $menuitem)
             {
+                // look for a match with the view
                 if (array_key_exists('view', $query) && array_key_exists('view', $menuitem->query) &&
                     ($menuitem->query['view'] == $query['view']))
                 {
                     $query['Itemid'] = $menuitem->id;
-                    // if there's an exact match with the id as well, then take that menuitem by preference, and remove the id from the query
+                    // if there's an exact match with the id as well, then take that menuitem by preference
                     if (array_key_exists('id', $query) && array_key_exists('id', $menuitem->query) && ($menuitem->query['id'] == (int)$query['id']))
                     {
-                        unset($query['id']);
-                        if (array_key_exists('catid', $query)) {
-                            unset($query['catid']);
-                        }
                         break;
                     }
                 }
