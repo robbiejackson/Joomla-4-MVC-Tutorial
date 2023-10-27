@@ -27,7 +27,7 @@ class HtmlView extends BaseHtmlView {
         // for custom fields
 		PluginHelper::importPlugin('content');
 		$item = $this->item;
-		$item->text = null;
+		$item->text = $item->description;
         $item->params   = $app->getParams();
 
 		$this->dispatchEvent(new Event('onContentPrepare', array ('com_helloworld.helloworld', &$item, &$item->params, null)));

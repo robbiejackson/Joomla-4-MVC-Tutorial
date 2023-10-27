@@ -82,7 +82,7 @@
 				name="tags" 
 				type="tag"
 				label="JTAG" 
-				description="JTAG_DESC"
+				description="JTAG"
 				mode="nested"
 				multiple="true">
 		</field>

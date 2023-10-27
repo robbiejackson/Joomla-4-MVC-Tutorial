@@ -60,7 +60,7 @@ class HelloworldTable extends Nested implements VersionableTableInterface, Tagga
         
         if (isset($array['parent_id']))
 		{
-			if (!isset($array['id']) || $array['id'] == 0)
+			if (!isset($array['id']) || $array['id'] == 0 || $array['id'] == "")
 			{   // new record
 				$this->setLocation($array['parent_id'], 'last-child');
 			}

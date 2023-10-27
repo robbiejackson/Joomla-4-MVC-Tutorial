@@ -39,7 +39,7 @@ class HtmlView extends BaseHtmlView {
         
         $this->addToolBar();
         
-        $this->setDocument();
+        $this->setupDocument();
         
         parent::display($tpl);
     }
@@ -98,7 +98,7 @@ class HtmlView extends BaseHtmlView {
 		}
     }
         
-    protected function setDocument() {
+    protected function setupDocument() {
 		//HtmlHelper::_('behavior.framework');
 		//HtmlHelper::_('behavior.formvalidator');
 
