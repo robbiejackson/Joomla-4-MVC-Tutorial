@@ -87,7 +87,7 @@
 				name="tags" 
 				type="tag"
 				label="JTAG" 
-				description="JTAG_DESC"
+				description="JGLOBAL_TYPE_OR_SELECT_SOME_TAGS"
 				multiple="true"
 		>
 		</field>
