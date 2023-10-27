@@ -70,7 +70,7 @@ class HtmlView extends BaseHtmlView
 		parent::display($tpl);
 
 		// Set properties of the html document
-		$this->setDocument();
+		$this->setupDocument();
 	}
 
 	/**
@@ -78,7 +78,7 @@ class HtmlView extends BaseHtmlView
 	 *
 	 * @return void
 	 */
-	protected function setDocument() 
+	protected function setupDocument() 
 	{
         $this->document->setTitle(Text::_('COM_HELLOWORLD_HELLOWORLD_CREATING'));
 	}

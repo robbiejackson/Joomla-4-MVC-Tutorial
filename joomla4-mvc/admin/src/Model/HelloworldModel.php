@@ -237,7 +237,7 @@ class HelloworldModel extends AdminModel
 		// Alter the greeting and alias for save as copy
 		if ($input->get('task') == 'save2copy')
 		{
-			$origTable = clone $this->getTable('', 'Administrator');
+			$origTable = clone $this->getTable();
 			$origTable->load($input->getInt('id'));
 
 			if ($data['greeting'] == $origTable->greeting)
@@ -290,7 +290,7 @@ class HelloworldModel extends AdminModel
 	public function saveorder($idArray = null, $lft_array = null)
 	{
 		// Get an instance of the table object.
-		$table = $this->getTable('', 'Administrator');
+		$table = $this->getTable();
 
 		if (!$table->saveorder($idArray, $lft_array))
 		{

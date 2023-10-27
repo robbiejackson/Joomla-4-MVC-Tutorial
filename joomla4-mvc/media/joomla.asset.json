@@ -54,7 +54,7 @@
       "type": "script",
       "uri": "com_helloworld/openstreetmap.js",
       "dependencies": [
-        "com_helloworld.openlayers"
+        "com_helloworld.openlayers", "jquery"
       ],
       "attributes": {
         "defer": true

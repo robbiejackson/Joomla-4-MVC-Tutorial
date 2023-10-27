@@ -67,7 +67,7 @@ class HtmlView extends BaseHtmlView {
         // Display the layout
 		parent::display($tpl);
         
-        $this->setDocument();
+        $this->setupDocument();
     }
     
     protected function addToolBar()
@@ -114,7 +114,7 @@ class HtmlView extends BaseHtmlView {
 		}
 	}
     
-    protected function setDocument() 
+    protected function setupDocument() 
 	{
 		//$document = Factory::getApplication()->getDocument();
 		$this->document->setTitle(Text::_('COM_HELLOWORLD_ADMINISTRATION'));

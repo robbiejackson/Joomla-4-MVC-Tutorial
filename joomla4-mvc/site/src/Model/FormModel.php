@@ -100,6 +100,17 @@ class FormModel extends AdminModel
 	{
 	}
     
+    public function save($data)
+	{
+        $result = parent::save($data);
+		if ($result)
+		{
+			$this->getTable()->rebuild(1);
+		}
+
+		return $result;
+	}
+    
     protected function cleanCache($group = null, $client_id = 0)
 	{
 		parent::cleanCache('com_helloworld');
