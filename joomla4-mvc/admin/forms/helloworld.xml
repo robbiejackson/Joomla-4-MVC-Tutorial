@@ -3,6 +3,24 @@
 	<config>
 		<inlinehelp button="show"/>
 	</config>
+	<field
+		name="greeting"
+		type="text"
+		label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
+		description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
+		size="40"
+        validate="greeting"
+		class="inputbox validate-greeting"
+		default=""
+		/>
+	<field 
+		name="alias" 
+		type="text" 
+		label="JFIELD_ALIAS_LABEL"
+		description="JFIELD_ALIAS_DESC"
+		hint="JFIELD_ALIAS_PLACEHOLDER"
+		size="40" 
+		/>
 	<fieldset 
                 name="details"
                 label="COM_HELLOWORLD_HELLOWORLD_DETAILS"
@@ -12,24 +30,7 @@
 				name="id"
 				type="hidden"
 				/>
-		<field
-				name="greeting"
-				type="text"
-				label="COM_HELLOWORLD_HELLOWORLD_GREETING_LABEL"
-				description="COM_HELLOWORLD_HELLOWORLD_GREETING_DESC"
-				size="40"
-                validate="greeting"
-				class="inputbox validate-greeting"
-				default=""
-				/>
-        <field 
-				name="alias" 
-				type="text" 
-				label="JFIELD_ALIAS_LABEL"
-				description="JFIELD_ALIAS_DESC"
-				hint="JFIELD_ALIAS_PLACEHOLDER"
-				size="40" 
-				/>
+
         <field
 				name="catid"
 				type="category"

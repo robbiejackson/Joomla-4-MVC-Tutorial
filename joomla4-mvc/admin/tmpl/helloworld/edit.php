@@ -16,12 +16,23 @@ $this->document->getWebAssetManager()
 // if &tmpl=component used on first invocation, ensure it's on subsequent ones too
 $input = Factory::getApplication()->input;
 $tmpl = $input->getCmd('tmpl', '') === 'component' ? '&tmpl=component' : '';
+
+$form  = $this->getForm();
 ?>
 
 <form action="<?php echo Route::_('index.php?option=com_helloworld&layout=edit' . $tmpl . '&id=' . (int) $this->item->id); ?>"
     method="post" name="adminForm" id="adminForm" class="form-validate">
     <input id="jform_title" type="hidden" name="helloworld-message-title"/>
-    
+
+    <div class="row title-alias form-vertical mb-3">
+        <div class="col-12 col-md-6">
+            <?php echo $form->renderField('greeting'); ?>
+        </div>
+        <div class="col-12 col-md-6">
+            <?php echo $form->renderField('alias'); ?>
+        </div>
+    </div>
+        
     <div class="main-card">
 
     <?php echo HtmlHelper::_('uitab.startTabSet', 'myTab', array('active' => 'details')); ?>
