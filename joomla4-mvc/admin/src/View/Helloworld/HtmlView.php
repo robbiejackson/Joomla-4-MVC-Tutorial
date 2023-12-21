@@ -96,6 +96,9 @@ class HtmlView extends BaseHtmlView {
 			}
 			ToolbarHelper::cancel('helloworld.cancel', 'JTOOLBAR_CLOSE');
 		}
+		
+		ToolbarHelper::divider();
+		ToolbarHelper::inlinehelp();
     }
         
     protected function setupDocument() {
