@@ -13,6 +13,8 @@ $this->document->getWebAssetManager()
     ->useScript('com_helloworld.validate-greeting')
     ->useScript('com_helloworld.fix-permissions-ajax-call');
 
+$this->useCoreUI = true;
+    
 // if &tmpl=component used on first invocation, ensure it's on subsequent ones too
 $input = Factory::getApplication()->input;
 $tmpl = $input->getCmd('tmpl', '') === 'component' ? '&tmpl=component' : '';
