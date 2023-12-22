@@ -189,10 +189,12 @@ $authorFieldwidth = $assoc ? "10%" : "20%";
                         </td>
                         <td>
                             <?php
+                            if ($src = $row->image->get('image')) {
                                 $caption = $row->image->get('caption') ? : '' ;
-                                $src = Uri::root() . ($row->image->get('image') ? : '' );
-                                $html = '<p class="hasTooltip" style="display: inline-block" data-html="true" data-bs-toggle="tooltip" data-placement="right" title="<img width=\'100px\' height=\'100px\' src=\'%s\'>">%s</p>';
-                                echo sprintf($html, $src, $caption);  ?>
+                                $html = '<p class="hasTooltip" style="display: inline-block" data-html="true" data-bs-toggle="tooltip" data-placement="right" title="%s"><img width=\'100px\' height=\'100px\' src=\'%s\'></p>';
+                                echo sprintf($html, $caption, Uri::root() . $src);
+                            }
+                            ?>
                         </td>
                         <td>
                             <?php echo $this->escape($row->access_level); ?>
