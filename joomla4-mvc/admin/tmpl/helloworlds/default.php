@@ -91,11 +91,15 @@ $authorFieldwidth = $assoc ? "10%" : "20%";
 		</tr>
 		</thead>
 		<tfoot>
+			<?php $listFooter = $this->pagination->getListFooter(); ?>
+			<?php if (!ctype_space($listFooter)) :
+			?>
 			<tr>
 				<td colspan="5">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
+			<?php endif;?>
 		</tfoot>
 		<tbody <?php if ($saveOrder) :
                 ?> class="js-draggable" data-url="<?php echo $saveOrderingUrl; ?>" data-direction="<?php echo strtolower($listDirn); ?>" data-nested="false"<?php
