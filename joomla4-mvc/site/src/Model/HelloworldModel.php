@@ -6,7 +6,6 @@ defined('_JEXEC') or die;
 
 use Joomla\CMS\Factory;
 use Joomla\CMS\MVC\Model\ItemModel;
-use Joomla\CMS\Language\Text;
 use Joomla\Registry\Registry;
 use Robbie\Component\Helloworld\Site\Helper\HelloworldHelper;
 use Joomla\CMS\Router\Route;
