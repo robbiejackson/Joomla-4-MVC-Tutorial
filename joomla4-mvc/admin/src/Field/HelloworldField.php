@@ -3,8 +3,6 @@
 namespace Robbie\Component\Helloworld\Administrator\Field;
 
 use Joomla\CMS\Form\Field\ListField;
-use Joomla\Database\DatabaseInterface;
-use Joomla\CMS\Factory;
 use Joomla\CMS\HTML\HTMLHelper;
 
 \defined('_JEXEC') or die;

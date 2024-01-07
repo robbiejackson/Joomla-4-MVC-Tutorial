@@ -56,7 +56,7 @@ $authorFieldwidth = $assoc ? "10%" : "20%";
 			<th width="1%">
 				<?php echo HTMLHelper::_('grid.checkall'); ?>
 			</th>
-            <th width="10%">
+            <th width="35%">
                 <?php echo HTMLHelper::_('searchtools.sort', 'COM_HELLOWORLD_HELLOWORLDS_NAME', 'greeting', $listDirn, $listOrder); ?>
             </th>
             <th width="10%">
@@ -65,7 +65,7 @@ $authorFieldwidth = $assoc ? "10%" : "20%";
             <th width="10%">
                 <?php echo Text::_('COM_HELLOWORLD_HELLOWORLDS_IMAGE'); ?>
             </th>
-            <th width="20%">
+            <th width="10%">
                 <?php echo HTMLHelper::_('searchtools.sort',  'JGRID_HEADING_ACCESS', 'access', $listDirn, $listOrder); ?>
             </th>
             <?php if ($assoc) : ?>
@@ -91,11 +91,15 @@ $authorFieldwidth = $assoc ? "10%" : "20%";
 		</tr>
 		</thead>
 		<tfoot>
+			<?php $listFooter = $this->pagination->getListFooter(); ?>
+			<?php if (!ctype_space($listFooter)) :
+			?>
 			<tr>
 				<td colspan="5">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
+			<?php endif;?>
 		</tfoot>
 		<tbody <?php if ($saveOrder) :
                 ?> class="js-draggable" data-url="<?php echo $saveOrderingUrl; ?>" data-direction="<?php echo strtolower($listDirn); ?>" data-nested="false"<?php
@@ -180,39 +184,41 @@ $authorFieldwidth = $assoc ? "10%" : "20%";
                                 <?php echo 'Path: ' . $this->escape($row->path); ?>
                             </div>
 						</td>
-                        <td align="center">
+                        <td>
                             <?php echo "[" . $row->latitude . ", " . $row->longitude . "]"; ?>
                         </td>
-                        <td align="center">
+                        <td>
                             <?php
+                            if ($src = $row->image->get('image')) {
                                 $caption = $row->image->get('caption') ? : '' ;
-                                $src = Uri::root() . ($row->image->get('image') ? : '' );
-                                $html = '<p class="hasTooltip" style="display: inline-block" data-html="true" data-bs-toggle="tooltip" data-placement="right" title="<img width=\'100px\' height=\'100px\' src=\'%s\'>">%s</p>';
-                                echo sprintf($html, $src, $caption);  ?>
+                                $html = '<p class="hasTooltip" style="display: inline-block" data-html="true" data-bs-toggle="tooltip" data-placement="right" title="%s"><img width=\'100px\' height=\'100px\' src=\'%s\'></p>';
+                                echo sprintf($html, $caption, Uri::root() . $src);
+                            }
+                            ?>
                         </td>
-                        <td align="center">
+                        <td>
                             <?php echo $this->escape($row->access_level); ?>
                         </td>
                         <?php if ($assoc) : ?>
-                            <td align="center">
+                            <td>
                                 <?php if ($row->association) : ?>
                                     <?php echo HTMLHelper::_('helloworldadministrator.association', $row->id); ?>
                                 <?php endif; ?>
                             </td>
                         <?php endif; ?>
-                        <td align="center">
+                        <td>
                             <?php echo $row->author; ?>
                         </td>
-                        <td align="center">
+                        <td>
                             <?php echo LayoutHelper::render('joomla.content.language', $row); ?>
                         </td>
-                        <td align="center">
+                        <td>
                             <?php echo substr($row->created, 0, 10); ?>
                         </td>
-                        <td align="center">
+                        <td>
                             <?php echo HTMLHelper::_('jgrid.published', $row->published, $i, 'helloworlds.', true, 'cb'); ?>
                         </td>
-						<td align="center">
+						<td>
 							<?php echo $row->id; ?>
 						</td>
 					</tr>

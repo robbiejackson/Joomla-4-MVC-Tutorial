@@ -6,7 +6,6 @@ defined('_JEXEC') or die('Restricted access');
 
 use Joomla\CMS\MVC\Model\ListModel;
 use Joomla\CMS\Factory;
-use Joomla\Database\DatabaseInterface;
 use Joomla\CMS\Language\Associations;
 
 class HelloworldsModel extends ListModel

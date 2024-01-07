@@ -12,13 +12,8 @@ use Joomla\CMS\Extension\BootableExtensionInterface;
 use Joomla\CMS\Extension\MVCComponent;
 use Joomla\CMS\HTML\HTMLRegistryAwareTrait;
 use Psr\Container\ContainerInterface;
-use Joomla\CMS\Helper\ContentHelper;
 use Joomla\CMS\Component\Router\RouterServiceTrait;
 use Joomla\CMS\Component\Router\RouterServiceInterface;
-use Robbie\Component\Helloworld\Site\Service\TraditionalRouter;
-use Joomla\CMS\Component\Router\RouterInterface;
-use Joomla\CMS\Application\CMSApplicationInterface;
-use Joomla\CMS\Menu\AbstractMenu;
 use Robbie\Component\Helloworld\Administrator\Service\HTML\AdministratorService;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Language\Text;
@@ -64,13 +59,6 @@ class HelloworldComponent extends MVCComponent implements
     {
         return 'published';
     }
-    
-    /* Uncomment the following function if you want to use the legacy router 
-    public function createRouter(CMSApplicationInterface $application, AbstractMenu $menu): RouterInterface
-    {
-        return new TraditionalRouter($application, $menu, $this->categoryFactory, $this->getDatabase());
-    }
-    */
     
     /**
 	 * This is used by com_fields in the admin menu

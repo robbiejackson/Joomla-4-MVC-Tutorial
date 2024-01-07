@@ -7,7 +7,6 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Router\Route;
 use Joomla\CMS\Language\Multilanguage;
-use Joomla\CMS\Categories\CategoryNode;
 
 /**
  * Helloworld Component Helper file for generating the URL Routes

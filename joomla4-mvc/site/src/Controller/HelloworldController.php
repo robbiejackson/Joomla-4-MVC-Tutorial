@@ -17,7 +17,6 @@ use Joomla\CMS\User\UserFactoryInterface;
 use Joomla\CMS\MVC\Controller\FormController;
 use Joomla\CMS\Language\Text;
 use Joomla\CMS\Uri\Uri;
-use Joomla\CMS\User\User;
 use Joomla\CMS\Session\Session;
 use Joomla\CMS\Log\Log;
 use Joomla\CMS\Filesystem\File;

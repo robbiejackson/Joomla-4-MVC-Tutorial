@@ -7,12 +7,8 @@ defined('_JEXEC') or die;
 use Joomla\CMS\Component\Router\RouterInterface;
 use Joomla\CMS\Factory;
 use Joomla\CMS\Categories\CategoryFactoryInterface;
-use Joomla\CMS\Application\CMSApplicationInterface;
-use Joomla\CMS\Menu\AbstractMenu;
 use Joomla\Database\DatabaseInterface;
 use Joomla\CMS\Language\Multilanguage;
-use Joomla\CMS\Categories\Categories;
-use Joomla\CMS\Language\Associations;
 
 class TraditionalRouter implements RouterInterface
 {
