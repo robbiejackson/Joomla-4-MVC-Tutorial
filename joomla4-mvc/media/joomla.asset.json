@@ -34,7 +34,7 @@
       "type": "script",
       "uri": "com_helloworld/enable-tooltips.js",
       "dependencies": [
-        "jquery", "bootstrap.es5", "bootstrap.popover"
+        "jquery", "bootstrap.popover"
       ],
       "attributes": {
         "defer": true

@@ -7,11 +7,16 @@
         <fieldset name="request" addfieldprefix="Robbie\Component\Helloworld\Administrator\Field">
             <field
                 name="id"
-                type="modal_helloworld"
+                type="ModalSelect"
                 required="true"
                 select="true"
-				clear="true"
+                clear="true"
                 label="COM_HELLOWORLD_HELLOWORLD_FIELD_GREETING_LABEL"
+                titleSelect="COM_HELLOWORLD_MENUITEM_SELECT_MODAL_TITLE"
+                urlSelect="index.php?option=com_helloworld&amp;view=helloworlds&amp;layout=modal&amp;tmpl=component"
+                sql_title_table="#__helloworld"
+                sql_title_column="greeting"
+                sql_title_key="id"
                 />
         </fieldset>
     </fields>

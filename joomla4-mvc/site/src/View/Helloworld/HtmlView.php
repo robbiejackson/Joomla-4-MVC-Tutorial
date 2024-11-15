@@ -29,16 +29,18 @@ class HtmlView extends BaseHtmlView {
 		$item = $this->item;
 		$item->text = $item->description;
         $item->params   = $app->getParams();
+        
+        $app = Factory::getApplication();
 
-		$this->dispatchEvent(new Event('onContentPrepare', array ('com_helloworld.helloworld', &$item, &$item->params, null)));
+		$app->triggerEvent('onContentPrepare', array ('com_helloworld.helloworld', &$item, &$item->params, null));
 
-		$results = Factory::getApplication()->triggerEvent('onContentAfterTitle', array('com_helloworld.helloworld', &$item, &$item->params, null));
+		$results = $app->triggerEvent('onContentAfterTitle', array('com_helloworld.helloworld', &$item, &$item->params, null));
 		$item->afterDisplayTitle = trim(implode("\n", $results));
 
-		$results = Factory::getApplication()->triggerEvent('onContentBeforeDisplay', array('com_helloworld.helloworld', &$item, &$item->params, null));
+		$results = $app->triggerEvent('onContentBeforeDisplay', array('com_helloworld.helloworld', &$item, &$item->params, null));
 		$item->beforeDisplayContent = trim(implode("\n", $results));
 
-		$results = Factory::getApplication()->triggerEvent('onContentAfterDisplay', array('com_helloworld.helloworld', &$item, &$item->params, null));
+		$results = $app->triggerEvent('onContentAfterDisplay', array('com_helloworld.helloworld', &$item, &$item->params, null));
 		$item->afterDisplayContent = trim(implode("\n", $results));
 
 		// Check for errors.
