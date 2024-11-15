@@ -14,8 +14,9 @@ use Joomla\CMS\Layout\LayoutHelper;
 use Joomla\CMS\Uri\Uri;
 use Joomla\Registry\Registry;
 use Joomla\CMS\Language\Multilanguage;
+use Joomla\CMS\Session\Session;
 
-$this->document->getWebAssetManager()->useScript('com_helloworld.admin-helloworlds-modal');
+$this->document->getWebAssetManager()->useScript('modal-content-select');
 
 $listOrder     = $this->escape($this->state->get('list.ordering'));
 $listDirn      = $this->escape($this->state->get('list.direction'));
@@ -26,7 +27,7 @@ $onclick   = $this->escape($function);
 ?>
 <div class="container-popup">
     
-<form action="<?php echo Route::_('index.php?option=com_helloworld&view=helloworlds&layout=modal&tmpl=component&function=' . $function . '&' . JSession::getFormToken() . '=1'); ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
+<form action="<?php echo Route::_('index.php?option=com_helloworld&view=helloworlds&layout=modal&tmpl=component&' . Session::getFormToken() . '=1'); ?>" method="post" name="adminForm" id="adminForm" class="form-inline">
 
 	<?php echo LayoutHelper::render('joomla.searchtools.default', array('view' => $this)); ?>
     
@@ -99,10 +100,9 @@ $onclick   = $this->escape($function);
                             <td>
                                 <?php 
                                 $link = 'index.php?option=com_helloworld&view=helloworld&id=' . $row->id;
-                                $attribs = 'data-function="' . $this->escape($onclick) . '"'
+                                $attribs = 'data-content-select'
 								. ' data-id="' . $row->id . '"'
 								. ' data-title="' . $this->escape(addslashes($row->greeting)) . '"'
-								. ' data-uri="' . $link . '"'
 								. ' data-language="' . $this->escape($lang) . '"'
                                 ;
                                 ?>
