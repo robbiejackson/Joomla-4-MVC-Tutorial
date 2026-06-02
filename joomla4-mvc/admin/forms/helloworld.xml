@@ -127,7 +127,7 @@
 				type="editor"
 				label="COM_HELLOWORLD_HELLOWORLD_FIELD_DESCRIPTION_LABEL" 
 				description="COM_HELLOWORLD_HELLOWORLD_FIELD_DESCRIPTION_DESC"
-				filter="JComponentHelper::filterText" 
+				filter="ComponentHelper::filterText" 
 				buttons="true" 
 		/>
     <fields name="imageinfo">

@@ -146,7 +146,7 @@ class HelloworldTable extends Nested implements VersionableTableInterface, Tagga
 	 *
 	 * @return	int
 	 */
-	protected function _getAssetParentId(Table $table = NULL, $id = NULL)
+	protected function _getAssetParentId(?Table $table = NULL, $id = NULL)
 	{
 		// We will retrieve the parent-asset from the Asset-table
 		$assetParent = Table::getInstance('Asset');

@@ -2,7 +2,7 @@
 
 namespace Robbie\Component\Helloworld\Administrator\Extension;
 
-defined('JPATH_PLATFORM') or die;
+defined('_JEXEC') or die;
 
 use Joomla\CMS\Association\AssociationServiceInterface;
 use Joomla\CMS\Association\AssociationServiceTrait;
@@ -50,7 +50,7 @@ class HelloworldComponent extends MVCComponent implements
 	 * Returns the table name for the count items function for the given section of the category table
 	 *
 	 */
-	protected function getTableNameForSection(string $section = null)
+	protected function getTableNameForSection(?string $section = null)
 	{
 		return 'helloworld';
 	}
@@ -60,17 +60,17 @@ class HelloworldComponent extends MVCComponent implements
      * for use by the count items function
 	 *
 	 */
-    protected function getStateColumnForSection(string $section = null)
+    protected function getStateColumnForSection(?string $section = null)
     {
         return 'published';
     }
     
-    /* Uncomment the following function if you want to use the legacy router 
+    /* Uncomment the following function if you want to use the legacy router */
     public function createRouter(CMSApplicationInterface $application, AbstractMenu $menu): RouterInterface
     {
         return new TraditionalRouter($application, $menu, $this->categoryFactory, $this->getDatabase());
     }
-    */
+    /**/
     
     /**
 	 * This is used by com_fields in the admin menu
